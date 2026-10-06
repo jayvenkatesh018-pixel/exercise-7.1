@@ -1,0 +1,60 @@
+// Runnable implementation to display "Good Morning" every 1 second
+class GoodMorningRunnable implements Runnable {
+    public void run() {
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Good Morning");
+                Thread.sleep(1000); // 1 second delay
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+// Runnable implementation to display "Hello" every 2 seconds
+class HelloRunnable implements Runnable {
+    public void run() {
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Hello");
+                Thread.sleep(2000); // 2 seconds delay
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+// Runnable implementation to display "Welcome" every 3 seconds
+class WelcomeRunnable implements Runnable {
+    public void run() {
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Welcome");
+                Thread.sleep(3000); // 3 seconds delay
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+public class RunnableInterfaceExample {
+    public static void main(String[] args) {
+        // Creating Runnable instances
+        GoodMorningRunnable r1 = new GoodMorningRunnable();
+        HelloRunnable r2 = new HelloRunnable();
+        WelcomeRunnable r3 = new WelcomeRunnable();
+
+        // Passing Runnable instances to Thread constructors
+        Thread t1 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+        Thread t3 = new Thread(r3);
+
+        // Starting the threads
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
